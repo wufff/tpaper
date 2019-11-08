@@ -32,6 +32,32 @@
   	 	 	 	精选试卷
   	 	 	 	<router-link to="/" tag="span" class="more">更多</router-link>
   	 	 	 </h3>
+         <ul class="list">
+              <router-link to="/" tag="li">
+                  <h4>湖北省新华小学三年级期中数学考试试题</h4>
+                  <div class="info">
+                      <span>浏览：30</span>
+                      <span>下载：2</span>
+                  </div>
+                  <span class="time">2019-1-2</span>
+              </router-link> 
+              <router-link to="/" tag="li">
+                  <h4>湖北省新华小学三年级期中数学考试试题中数学考试试题中数学考试试题</h4>
+                  <div class="info">
+                      <span>浏览：30</span>
+                      <span>下载：2</span>
+                  </div>
+                  <span class="time">2019-1-2</span>
+              </router-link>  
+              <router-link to="/" tag="li">
+                  <h4>湖北省新华小学三年级期中数学考试试题中数学 考试试题中数学考试试题</h4>
+                  <div class="info">
+                      <span>浏览：30</span>
+                      <span>下载：2</span>
+                  </div>
+                  <span class="time">2019-1-2</span>
+              </router-link>                               
+         </ul>
   	 	 </div>
   	 </div>
      <foot></foot>	
@@ -50,19 +76,7 @@ export default {
 }
 </script>
 <style scoped lang="less">
-   .moreBt {
-   	  display: inline-block;
-   	  width: 16px;
-   	  height: 15px;
-   	  margin-right: 10px;	
-   	  img {
-   	  	  width: 100%;
-   	  	  height: 100%;
-   	  }
-   }
-   .space {
-   	 font-size: 22px;
-   }
+   
    .goVip {
    	   height: 34px;
    	   color:#7f5010;
@@ -97,6 +111,7 @@ export default {
    	  	  }
    	  }
    }
+
    .recommend {
    	 background-color: #fff;
    	 padding: 6px 15px;
@@ -104,5 +119,22 @@ export default {
    	 	 font-size: 15px;
    	 	 color:#5e5e5e;
    	 }
+     .list > li{
+        padding: 16px 0;
+        border-bottom:1PX solid #e8e8e8; 
+        position: relative;
+        .info{
+           font-size: 14px;
+           color:#919191;
+           > span { margin-right: 10px; }
+          
+        }
+        .time {
+             position: absolute;
+             right: 0;
+             bottom:16px;
+              color:#919191;
+           }        
+     }
    }
 </style>
