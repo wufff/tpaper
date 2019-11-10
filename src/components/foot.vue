@@ -1,6 +1,6 @@
 <template>
      <ul class="foot">
-         <router-link to="/" tag="li">
+         <router-link to="/" exact tag="li">
               <div class="icon icon-home"></div>
               <div class="name">首页</div>
          </router-link>   
@@ -39,7 +39,7 @@ export default {
 <style scoped lang="less">
    .foot {
        position: fixed;
-       z-index: 99;
+       z-index: 80;
        bottom: 0;
        width: 100%;
        left: 0;

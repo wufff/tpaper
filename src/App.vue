@@ -5,14 +5,33 @@
 </template>
 
 <style lang="less">
-  @import './style/reset.css';
-  body, html, #app {
+@import './style/reset.css';
+body, html, #app {
    width: 100%;
    height: 100%;
    font-size: 15px;
    background-color: #f1f1f1;
 }
- .head {
+
+
+//==========布局
+ .main {
+   height: 100%;
+   width: 100%;
+   padding-bottom:52px;
+ }
+
+ .page {
+   height: 100%;
+   width: 100%;    
+ }
+
+
+
+//===========单件
+
+
+.head {
     height: 50px;
     background-color: #37aafd;
     position: fixed;
@@ -38,17 +57,11 @@
      font-size: 22px;
    }       
  }
- .main {
-   padding-top: 50px;
- }
- .img {
-   display: inline-block;
-   img {
-     width: 100%;
-     height: 100%;
-   }
- }
- h3{
+
+
+
+ //模块开头
+h3{
    font-size: 17px;
    height:44px;
    line-height: 44px;
@@ -62,14 +75,6 @@
  }
 
 
- body, html, #app {
-   width: 100%;
-   height: 100%;
-   font-size: 15px;
-   background-color: #f1f1f1;
-}
-
-
 //试卷标题
   h4  {
     font-size: 15px;
@@ -78,4 +83,52 @@
     max-height:36px;
     overflow: hidden;
   }
+
+
+
+ .img {
+   display: inline-block;
+   img {
+     width: 100%;
+     height: 100%;
+   }
+ }
+
+
+  .downlist {
+      width: 100%;
+      height: 100%;
+       position: fixed;
+       left:0;
+       right:0;
+       top:0;
+       z-index: 90;
+       background-color: rgba(0,0,0,0.5);
+       padding-top: 96px;
+       .content {
+          background-color: #fff;
+          padding: 12px 23px;
+          .item {
+              line-height: 36px;
+              height: 36px;
+              color:#919191;
+              font-size: 16px;
+              &.active {
+                  color:#37aafd;
+              }
+          }
+       }
+
+  }
+
+
+// ==================动画===========================
+
+.up-enter-active, .up-leave-active {
+     transition: .3s;
+  }
+.up-enter, .up-leave-to /* .fade-leave-active below version 2.1.8 */ {
+     transform:translateY(30px);
+     opacity: 0
+}
 </style>

@@ -10,6 +10,7 @@
     "amfe-flexible": "^2.2.1",
     "core-js": "^3.3.2",
     "cube-ui": "~1.12.15",
+    "fastclick": "^1.0.6",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
     "vuex": "^3.0.1"

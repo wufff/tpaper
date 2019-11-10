@@ -3,7 +3,11 @@ import './cube-ui'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import register from './register'
+import FastClick from 'fastclick'
 import 'amfe-flexible'
+
+// FastClick.attach(document.body);
 
 Vue.config.productionTip = false
 

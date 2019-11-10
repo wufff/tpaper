@@ -76,7 +76,9 @@ export default {
 }
 </script>
 <style scoped lang="less">
-   
+    .main {
+       padding-top: 50px;
+    }
    .goVip {
    	   height: 34px;
    	   color:#7f5010;
