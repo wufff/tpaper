@@ -7,10 +7,10 @@
          <router-link to="/items" tag="li">
               <div class="icon icon-items"></div>
               <div class="name">题库</div>
-         </router-link>  
+          </router-link>    
           <router-link to="/cart" tag="li">
               <div class="icon icon-cart"></div>
-              <div class="name">试题栏</div>
+              <div class="name">试题篮</div>
               <div class="ball-container">
                 <transition v-on:after-enter="afterEnter" v-on:enter="enter" v-on:before-enter="beforeEnter" name="drop" v-for="(litterBall,indexBall) in balls" :key="indexBall">
                   <div v-show="litterBall.show" class="ball">
@@ -29,7 +29,6 @@
 // v-on:before-enter="beforeEnter" （动画进入前）
 // v-on:enter="enter"（动画进入时）
 // v-on:after-enter="afterEnter" （动画进入完后）
-
 
 
 export default {

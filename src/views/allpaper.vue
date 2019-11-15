@@ -83,7 +83,7 @@
 				                              <span>下载：2</span>
 				                          </div>
 				                          <span class="time">2019-1-5</span>
-				                      </router-link>  				                                                                                              
+				                      </router-link>  			                                                                                        
 				                 </ul>
 				           </div>                        
 		          </div>       	 	
@@ -91,10 +91,10 @@
      	 </div>
      </div>
      
-   <div class="cart_rk">
+   <router-link class="cart_rk" to="/cart" tag="div">
         <img src="../assets/cart_rk.png" alt="">
         <span class="num_num">1</span>
-    </div>    
+    </router-link>    
   </div>
 </template>
 

@@ -8,7 +8,11 @@ import allpaper from '../views/allpaper.vue'
 import paperDtail from '../views/paperDtail.vue'
 import myTest from '../views/myTest.vue'
 import result from '../views/result.vue'
-
+import analysis from '../views/analysis.vue'
+import my from '../views/my.vue'
+import history_zj  from "../views/history_zj"
+import history_xz  from "../views/history_xz"
+import history_ct  from "../views/history_ct"
 
 Vue.use(VueRouter);
 const routes = [
@@ -41,7 +45,32 @@ const routes = [
     path: '/result',
     name: 'result',
     component: result
-  },       
+  },   
+  {
+    path: '/analysis',
+    name: 'analysis',
+    component: analysis
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: my
+  }, 
+  {
+    path: '/history_zj',
+    name: 'history_zj',
+    component: history_zj
+  },
+  {
+    path: '/history_xz',
+    name: 'history_xz',
+    component: history_xz
+  },
+  {
+    path: '/history_ct',
+    name: 'history_ct',
+    component: history_ct
+  },                
   {
     path: '/allpaper',
     name: 'allpaper',
