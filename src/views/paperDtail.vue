@@ -1,28 +1,21 @@
 <template>
   <div class="page">
      <div class="head">
-          <span class="moreBt" @click="showTree">
-            <img src="../assets/more.png" alt="">
+        <span class="back" @click="back">
+          <span class="img back-bt">
+            <img src="../assets/arrow_left_b.png" alt="">
           </span>
-          知识点: <span>初中</span>
-     </div>  	 
-  	 <div class="filter clearfix">
-         <div class="item" v-for="(item,index) in selectValue"  @click="selectTitle(index,item.current)">
-            {{item.name}}
-            <span class="img down-img">
-              <img src="../assets/filter_up.png" v-show="item.open" alt="">
-              <img src="../assets/filter_down.png" v-show="!item.open" alt="">
-            </span>
-            <span class="border-right" v-show="index < 2"></span>
-         </div>
-     </div>
-     <div class="main">
-        <div class="list">
-            <cube-scroll
+        </span>
+          <div class="inner">
+              试卷详情
+          </div>
+      </div>  
+      <div class="main">
+         <div class="list">
+          <cube-scroll
             ref="scroll"
             :data="datalist" 
             :options="options">
-           
           <div class="scrollwrap">
           <div class="test">
               <div class="title">
@@ -157,142 +150,133 @@
               </div>
           </div> 
           </div>   
-           </cube-scroll>             
-        </div>
-       
-     </div>
-     <foot ref="foot"></foot>
-     <tree ref="tree"></tree>	
-     <div class="downlist" v-show="downlistVisble">
-      <transition name="up">
-        <ul class="content" v-if="downlistData.data.length > 0"  v-show="downlistVisble">
-            <li class="item" 
-            :class="{active:index == downlistData.current}" 
-            v-for="(item,index) in downlistData.data"
-            @click="select(item.name,item.id,downlistData.type,index)"
-            >
-            {{item.name}}
-          </li>
-        </ul>  
-      </transition>       
-     </div>
+           </cube-scroll>                         
+         </div>
+      </div>
+     <div class="control">
+         <div class="item">
+            <span class="img myCart_rukou">
+               <img src="../assets/myCart_rukou.png" alt="">
+            </span>
+            试题篮
+            <span class="border-right"></span>
+            <span class="num_num">1</span>
+          </div>
+         <div class="item">
+            <span class="img downLoad_b">
+               <img src="../assets/downLoad_b.png" alt="">
+            </span>                     
+         下载试卷
+          <span class="border-right"></span>
+         </div>
+         <div class="item" @click="goMyTest">
+            <span class="img save_b">
+               <img src="../assets/myTest.png" alt="">
+            </span>            
+           在线自测
+       </div>
+     </div>                          
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import foot from '@/components/foot.vue'
-import tree from '@/components/tree.vue'
 
-
-export default {
-  name: 'items',
-  data(){
-     return {
-       options:{
-         click:true,
-         bounce:false
+ export default { 
+    name: 'paperDtail',
+    data(){
+         return {
+           options:{
+             click:true,
+             bounce:false
+           }
+         }
+    },
+    methods:{
+       back(){
+         window.history.go(-1);
        },
-       datalist:[],
-       downlistVisble:false,
-       selectValue:[{name:"全部题型",id:0,open:false,current:0},{name:"全部难度",id:0,open:false,current:0},{name:"全部年级",id:0,open:false,current:0}]
-     }
-  },
-
-  created(){
-    this.downlistData = {
-        type:0,
-        data:[{name:"精选试题",id:"3"},{name:"历年正在整体",id:"2"},{name:"黄冈一种",id:"8"}],
-        current:0
+       goMyTest(){
+           this.$router.push({path:"/myTest"});
+       }
     }
-    // const downlist = this.$createDownlist({
-    //      $props: {
-    //       selectData: this.downlistData
-    //     }
-    //   });
-
-  },
-  mounted(){
-    if(this.$route.query.tree){
-         this.showTree();
-    }
-  },
-  methods:{
-     select(name,id,tpye,index){
-        this.selectValue[tpye].name = name;
-        this.selectValue[tpye].id = id;
-        this.selectValue[tpye].current = index;
-        this.selectValue[tpye].open = false;
-        this.downlistVisble = false;
-     },
-     selectTitle(index,current){
-        this.selectValue[index].open = true;
-        this.downlistVisble = true;
-        this.downlistData.current = current;
-     },
-     showTree(){
-       this.$refs.tree.show();
-     },
-     addCart(event){
-       this.$refs.foot.drop(event.target);   
-     }
-  },
-  components: {
-     foot,
-     tree
-  }
-}
+  }  
 </script>
 <style scoped lang="less">
-   
+ .main {
+   padding-top: 49px;
+   padding-bottom: 0;
+ }
 
-   .border-right{
+.border-right{
       display: block;
       width: 1px;
       height: 20px;
       background: #e2e2e2;
       position: absolute;
-      top: 11px;
+      top: 14px;
       right:0; 
    }
 
 
-   .filter {
-      background-color: #fff;
-      position: fixed;
-      z-index: 98;
-      top:50px;
-      left: 0;
-      right: 0;
-      .down-img {
-         width: 11px;
-         height: 6px;
-         position: relative;
-         top:-2px;
-         margin-left: 5px;
-      }
+.num_num {
+   right: 15px;
+   top: 8px
+}
 
-      .item {
-         height: 42px;
-         line-height: 42px;
-         float: left;
-         width: 33.333%;
-         text-align: center;
-         font-size: 15px;
-         color:#000000;
-         position: relative;
-      }
+.control {
+       position: fixed;
+       bottom:0px;
+       left:0;
+       right: 0;
+       height: 51px;
+       background: red;
+       z-index: 80;
+       background: #37aafd;
+       .item {
+          float: left;
+          width: 33.333%;
+          text-align: center;
+          line-height:50px;
+          color: #fff;
+          position: relative;
+       }
+     } 
+
+
+
+
+
+.myCart_rukou {
+     width: 22px; 
+     height: 22px;
+     position: relative;
+     top:6px;
+}
+
+
+   .dele_b{  
+     width: 17px;
+     height: 19px;
+     position: relative;
+     top:2px;
+     margin-right: 4px;
+  }
+
+  .downLoad_b {
+      width: 17px;
+      height: 17px;
+      position: relative;
+      top:2px;
+      margin-right: 2px;
+  }
+ 
+  .save_b {
+      width: 17px;
+      height: 17px;
+      position: relative;
+      top:3px;
+      margin-right: 2px;     
    }
 
-   .main {
-        padding-top: 92px;
-   }
 
-   
-     .selectBox {
-        width: 100%;
-        height: 100%;
-     }
 
-   
 </style>

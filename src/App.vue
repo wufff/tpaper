@@ -12,25 +12,22 @@ body, html, #app {
    font-size: 15px;
    background-color: #f1f1f1;
 }
-
-
 //==========布局
  .main {
    height: 100%;
    width: 100%;
    padding-bottom:52px;
+   .list {
+      width: 100%;
+      height: 100%;
+   }
  }
-
  .page {
    height: 100%;
    width: 100%;    
  }
 
-
-
 //===========单件
-
-
 .head {
     height: 50px;
     background-color: #37aafd;
@@ -42,7 +39,11 @@ body, html, #app {
     line-height: 50px;
     font-size: 17px;
     padding: 0 15px;
-    z-index: 98;
+    z-index: 100;
+    .inner {
+        text-align: center;
+        line-height: 50px; 
+     }    
     .moreBt {
           display: inline-block;
           width: 16px;
@@ -57,9 +58,6 @@ body, html, #app {
      font-size: 22px;
    }       
  }
-
-
-
  //模块开头
 h3{
    font-size: 17px;
@@ -73,8 +71,6 @@ h3{
      bottom: 0px;
    }
  }
-
-
 //试卷标题
   h4  {
     font-size: 15px;
@@ -83,9 +79,6 @@ h3{
     max-height:36px;
     overflow: hidden;
   }
-
-
-
  .img {
    display: inline-block;
    img {
@@ -93,8 +86,6 @@ h3{
      height: 100%;
    }
  }
-
-
   .downlist {
       width: 100%;
       height: 100%;
@@ -118,17 +109,125 @@ h3{
               }
           }
        }
-
   }
 
 
-// ==================动画===========================
 
+ .back {
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    padding-left: 20px;
+    position: absolute;
+    left:0px;
+    bottom: 0;
+ }
+ .back-bt {
+    width: 8px;
+    height: 15px;
+    position: relative;
+    top:2px;
+ }
+
+
+.num_num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background: red;
+    text-align: center;
+    line-height: 21px;
+    position: absolute;
+    font-size: 12px;
+ }
+
+
+
+ .test {
+    padding: 16px;
+    margin-top: 10px;
+    background-color: #fff;
+   .add-img { 
+        width: 11px;
+        height: 11px;
+    }
+   .add-img_y{
+      width: 11px;
+      height: 9px;
+      margin-right: 3px;
+   }    
+    .title {
+       margin-bottom: 8px;
+    }
+    .aswerbox {
+         padding-left:12px; 
+         .sort{
+           position: absolute;
+           left:2px;
+         }
+         .option {
+           padding-left: 20px;
+           display: block;
+         }
+         li {
+           border-radius: 2px;
+           // background-color: #a3d3f6;
+           padding: 6px;
+           position: relative;
+         }
+         margin-bottom: 30px;
+       }     
+     .bottom {
+        padding-left: 15px;
+        color:#919191;
+        position: relative;
+         .type{ 
+            margin-right: 20px;
+          }
+        .addItemBt{
+           position: absolute;
+           right: 0;
+           bottom: 0;
+           border:1px solid #919191;
+           border-radius: 2px;
+           padding: 6px  9px;
+        }
+        .addItemBt_y{
+           position: absolute;
+           right: 0;
+           bottom: 0;
+           background-color: #37aafd;
+           color: #fff;
+           border-radius: 2px;
+           padding: 6px  9px;           
+        }
+     }
+
+   }
+
+
+
+
+
+
+
+
+
+// ==================动画===========================
 .up-enter-active, .up-leave-active {
      transition: .3s;
   }
 .up-enter, .up-leave-to /* .fade-leave-active below version 2.1.8 */ {
      transform:translateY(30px);
      opacity: 0
+}
+
+
+
+.moveLeft-enter-active, .moveLeft-leave-active {
+     transition: .3s;
+}
+.moveLeft-enter, .moveLeft-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform:translateX(100%);
 }
 </style>

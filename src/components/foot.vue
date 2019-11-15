@@ -11,6 +11,13 @@
           <router-link to="/cart" tag="li">
               <div class="icon icon-cart"></div>
               <div class="name">试题栏</div>
+              <div class="ball-container">
+                <transition v-on:after-enter="afterEnter" v-on:enter="enter" v-on:before-enter="beforeEnter" name="drop" v-for="(litterBall,indexBall) in balls" :key="indexBall">
+                  <div v-show="litterBall.show" class="ball">
+                    <div class="inner"></div>
+                  </div>
+                </transition>
+              </div>
           </router-link>  
           <router-link to="/my" tag="li">
               <div class="icon icon-my"></div>
@@ -19,6 +26,12 @@
      </ul>
 </template>
 <script>
+// v-on:before-enter="beforeEnter" （动画进入前）
+// v-on:enter="enter"（动画进入时）
+// v-on:after-enter="afterEnter" （动画进入完后）
+
+
+
 export default {
   name: 'tree',
   props: {
@@ -26,11 +39,29 @@ export default {
   },
   data() {
     return {
-       
+       balls:[
+              {show:false,index:0},
+              {show:false,index:1},
+              {show:false,index:2},
+              {show:false,index:3},
+              {show:false,index:4}
+            ],
+       dropBall:[]      
     }
   },
   methods:{
-     
+     drop(ele){
+       console.log(ele)
+     },
+     beforeEnter(ele){
+
+     },
+     enter(ele,done){
+
+     },
+     afterEnter(ele){
+
+     },
   }
 }
 </script>
@@ -68,4 +99,24 @@ export default {
    }
 
  
+
+.ball-container {
+   .ball {
+      position:fixed;
+      left:32px;
+      bottom:22px;
+      z-index:900;
+      transform:translate3d(0,0,0);
+      transition:all 0.6s cubic-bezier(0.49,-0.29,0.75,0.41);
+      .inner {
+          width:16px;
+          height:16px;
+          border-radius: 100%;
+          background:rgb(0,160,220);
+          transition:all 0.6s linear;
+          transform: translate3d(0,0,0);
+      }      
+   }
+}
+  
 </style>

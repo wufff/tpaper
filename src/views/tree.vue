@@ -1,8 +1,7 @@
 <template>
-  <div class="treebox" v-show="visble">
+  <div class="treebox">
      <div class="main"> 
-      <transition name="up">
-          <div class="list"  v-show="visble">
+          <div class="list">
              <div class="scrollwrap">
                 <div  v-for="(item,index) in data">
                    <div class="treeItem">
@@ -27,11 +26,11 @@
                 </div>
              </div>        
           </div>
-         </transition>   
      </div>
    </div>
 </template>
 <script>
+  
 export default {
   name: 'tree',
   props: {
@@ -39,7 +38,6 @@ export default {
   },
   data() {
     return {
-        visble:false,
         data: [
          {
           "text": "一层1",
@@ -69,9 +67,6 @@ export default {
     }
   },
   methods:{
-     show(){
-        this.visble = !this.visble;
-     },
      open(index,index2){
        if(index2){
          this.data[index].children[index2].opened= true;
@@ -99,19 +94,16 @@ export default {
       left: 0;
       right: 0;
       top:0;
-      z-index:99;
   }
 
 
 
   .main {
-     padding-top: 54px;
+     padding-top: 52px;
      padding-bottom: 0;
      background:rgba(0,0,0,0.5); 
      .list {
         background-color: #fff;
-        width: 100%;
-        height: 100%;
      }
   }
   .scrollwrap {

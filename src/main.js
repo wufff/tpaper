@@ -6,8 +6,13 @@ import store from './store'
 import register from './register'
 import FastClick from 'fastclick'
 import 'amfe-flexible'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
-// FastClick.attach(document.body);
+
+
+FastClick.attach(document.body);
+Vue.use(VueAwesomeSwiper)
+
 
 Vue.config.productionTip = false
 
