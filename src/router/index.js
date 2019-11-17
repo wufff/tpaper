@@ -19,7 +19,10 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    meta:{
+      login:true
+    }
   },
   {
     path: '/items',
@@ -74,15 +77,27 @@ const routes = [
   {
     path: '/allpaper',
     name: 'allpaper',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/allpaper.vue')
+    component: () => import('../views/allpaper.vue')
   }
 ]
 
 const router = new VueRouter({
      routes
 })
+
+
+router.beforeEach((to,from,next) => {
+   let bl = to.matched.some((item) => {
+      return item.meta.login;
+   })
+   if(bl){
+      let vm = router.app;
+      console.log(vm.$local);
+      next();
+   }else{
+      next();
+   }
+})
+
 
 export default router

@@ -76,11 +76,16 @@ export default {
        }
      },
      beforeEnter(el){
-        console.log("beforeEnter");
+        var html = document.querySelector("html");
+        var  fontSize = html.style.fontSize;
+        var reg = /\d+/;
+        var rem = fontSize.match(reg)[0];
         const ball = this.dropBalls[this.dropBalls.length -1];
         const rect = ball.el.getBoundingClientRect();
-        const x = rect.left - 180;
-        const y = -(window.innerHeight - rect.top - 22);
+        var  AdaX =  4.8 * rem;
+        var AdaY = 0.586667 * rem;
+        const x = rect.left - AdaX;
+        const y = -(window.innerHeight - rect.top - AdaY);
         el.style.display = '';
         el.style.transform  = `translate3d(0,${y}px,0)`;
         const inner = el.getElementsByClassName('inner-hook')[0];
@@ -103,7 +108,8 @@ export default {
   }
 }
 </script>
-
+<!-- 4.8rem;
+ 0.586667rem; -->
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
    .foot {
