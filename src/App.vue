@@ -131,14 +131,15 @@ h3{
 
 
 .num_num {
-    width: 20px;
-    height: 20px;
-    border-radius: 50px;
+
+   
+    border-radius: 100%;
     background: red;
     text-align: center;
-    line-height: 21px;
+    line-height: 22px;
     position: absolute;
     font-size: 12px;
+    min-width: 22px;
  }
 
 
