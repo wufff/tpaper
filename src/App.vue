@@ -131,8 +131,6 @@ h3{
 
 
 .num_num {
-
-   
     border-radius: 100%;
     background: red;
     text-align: center;
@@ -141,6 +139,30 @@ h3{
     font-size: 12px;
     min-width: 22px;
  }
+
+
+.noneWarp {
+    text-align: center;
+    padding-top: 155px;
+   .none_items {
+          width: 108px;
+          height: 85px;
+          margin-bottom: 15px;
+    }    
+    .none_com {
+        height: 72.5px;
+        width: 101.5px;
+        margin-bottom: 15px; 
+    }
+    .title{
+        margin-bottom: 15px;
+    }
+    .goItem {
+        color:#37aafd;
+        font-size: 17px;
+    }
+ } 
+
 
 
 

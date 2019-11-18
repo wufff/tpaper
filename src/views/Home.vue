@@ -162,8 +162,8 @@ export default {
    	   line-height: 35px;
    	   padding:0 15px;
    	   background:url("../assets/arrow_right_z.png") no-repeat #dcaf72;
-   	   background-size:  6px 15px;
-   	   background-position: 97% 10px;;
+   	   background-size:  6px 10px;
+   	   background-position: 97% 11px;;
    	   .vipImg { 
           width: 16px;
           height: 14px;

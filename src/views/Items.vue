@@ -1,7 +1,7 @@
 <template>
   <div class="page">
      <div class="head">
-          <span class="moreBt">
+          <span class="moreBt" @click="showTree">
             <img src="../assets/more.png" alt="">
           </span>
           初中 <span class="space">·</span> 数学
@@ -23,7 +23,9 @@
           ref="scroll"
           :data="datalist" 
           :options="options">
-         
+        <div>
+          
+        </div>  
         <div class="scrollwrap">
         <div class="test">
             <div class="title">
@@ -163,7 +165,8 @@
       </div>
      
    </div>
-     <foot ref="foot" ></foot>	
+     <foot  ref="foot" ></foot>	
+      <tree ref="tree"></tree>
      <div class="downlist" v-show="downlistVisble">
       <transition name="up">
         <ul class="content" v-if="downlistData.data.length > 0"  v-show="downlistVisble">
@@ -183,6 +186,7 @@
 <script>
 // @ is an alias to /src
 import foot from '@/components/foot.vue'
+import tree from '@/components/tree.vue'
 export default {
   name: 'items',
   data(){
@@ -208,6 +212,11 @@ export default {
     //     }
     //   });
   },
+   mounted(){
+    if(this.$route.query.tree){
+         this.showTree();
+    }
+  },
   methods:{
      select(name,id,tpye,index){
         this.selectValue[tpye].name = name;
@@ -224,10 +233,14 @@ export default {
      addNum_num(event){
         this.$store.dispatch("add_num")
         this.$refs.foot.drop(event.target)
+     },
+    showTree(){
+       this.$refs.tree.show();
      }
   },
   components: {
-     foot
+     foot,
+     tree
   }
 }
 </script>
@@ -235,6 +248,8 @@ export default {
    .add-img { 
         width: 11px;
         height: 11px;
+        position: relative;
+        top:1PX;
     }
    .add-img_y{
       width: 11px;

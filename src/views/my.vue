@@ -43,7 +43,7 @@
                     <img src="../assets/arrow_right.png" alt="">
                   </span>
                 </router-link>
-                  <li>
+                  <router-link to="/feedback" exact tag="li">
                     <span class="img feedback">
                       <img src="../assets/feedback.png" alt="">
                    </span>                  
@@ -51,7 +51,7 @@
                    <span class="img arrow_right">
                     <img src="../assets/arrow_right.png" alt="">
                   </span>
-                </li>                                                                          
+                </router-link>                                                                          
              </ul>
        </div>
        <div class="outBtn">
@@ -71,7 +71,7 @@ export default {
   },
   methods:{
     goVip(){
-       this.$router.push({path:"/buyVip"});
+       this.$router.push({path:"/buy"});
     }
   },
   components:{

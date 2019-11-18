@@ -4,9 +4,20 @@
           <div class="list">
              <cube-scroll
             ref="scroll"
-            :options="options">            
-             <div class="wrapscroll">
-                <div class="itemClassfiy">
+            :options="options">  
+             <div class="wrapscroll" v-show="datalist.length < 1">
+                   <div class="noneWarp">
+                       <span class="img none_items">
+                         <img src="../assets/none_items.png" alt="">
+                       </span>
+                       <div class="title">试题篮是空的！</div>
+                       <router-link to="/items" class="goItem">
+                          去选题
+                        </router-link>
+                   </div>                 
+             </div>          
+             <div class="wrapscroll" v-show="datalist.length > 0">
+                <div class="itemClassfiy" >
                     <div class="title">一、单选题</div>
                     <span class="img closeBtn">
                         <img src="" alt="">
@@ -132,7 +143,7 @@
              </cube-scroll>
           </div>
       </div>  
-     <div class="control">
+     <div class="control"  v-show="datalist.length > 0">
          <div class="item">
             <span class="img dele_b">
                <img src="../assets/dele_b.png" alt="">
@@ -171,6 +182,7 @@ export default {
          click:true,
          bounce:false
        },        
+       datalist:[]
     }
   },
   methods:{
@@ -270,8 +282,23 @@ export default {
        }                
   }
 
-
-
+ .noneWarp {
+    text-align: center;
+    padding-top: 155px;
+   .none_items {
+          width: 108px;
+          height: 85px;
+          margin-bottom: 15px;
+    }    
+    .title{
+        margin-bottom: 15px;
+    }
+    .goItem {
+        color:#37aafd;
+        font-size: 17px;
+    }
+ }
+ 
   .dele_b{  
      width: 17px;
      height: 19px;
